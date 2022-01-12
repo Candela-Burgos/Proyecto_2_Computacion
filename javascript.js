@@ -266,7 +266,7 @@ const ventas = [
 
     [ 4, ["Monitor GPRS 3000", "Motherboard ASUS 1500"], ["Monitor GPRS 3000", "Motherboard ASUS 1500"], ["Monitor ASC 543", "Motherboard MZI"], ["Monitor ASC 543", "Motherboard ASUS 1200"], ["Monitor GPRS 3000", "Motherboard ASUS 1200"], ],
     
-    [ 5, 300, 350, 280, 320, 320, ],
+    [ 5, 320, 320, 280, 350, 300, ],
 
     [ 6, `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
     <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`,  `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
