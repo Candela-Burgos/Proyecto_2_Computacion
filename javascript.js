@@ -308,11 +308,11 @@ const insertTdVentas = (array) => {
             const sucursal = ventas[i][3];
             const componente = ventas[i][4]; */
             //const precio = ventas[i][5];
-            //const tr = document.createElement('tr');
+            const tr = document.createElement('tr');
 
-            fila.innerHTML = `<td>${fecha}</td><td>${vendedora}</td>`;
+            tr.innerHTML = `<td>${fecha}</td><td>${vendedora}</td>`;
 
-            tablaVentas.appendChild(fila); /*  */
+            tablaVentas.appendChild(tr); /*  */
         }
     
     }
@@ -321,3 +321,6 @@ const insertTdVentas = (array) => {
 insertTdVentas(ventas)
 
 /*<td>${vendedora}</td><td>${sucursal}</td><td>${componente}</td>*/
+
+// nose como imprimir en la tabla
+// nose como insertar el input type date en las modales
