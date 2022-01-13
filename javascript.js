@@ -258,24 +258,42 @@ const precios = [
 // Ventas
 
 const ventas = [
-    [ 1, new Date(2019, 1, 4), new Date(2019, 0, 1), new Date(2019, 0, 2), new Date(2019, 0, 10), new Date(2019, 0, 12), ],
-
-    [ 2, "Grace", "Ada", "Grace" , "Ada", "Grace", ],
-
-    [ 3, "Centro", "Centro", "Caballito", "Centro", "Caballito", ],
-
-    [ 4, ["Monitor GPRS 3000", "Motherboard ASUS 1500"], ["Monitor GPRS 3000", "Motherboard ASUS 1500"], ["Monitor ASC 543", "Motherboard MZI"], ["Monitor ASC 543", "Motherboard ASUS 1200"], ["Monitor GPRS 3000", "Motherboard ASUS 1200"], ],
-    
-    [ 5, 320, 320, 280, 350, 300, ],
-
-    [ 6, `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-    <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`,  `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-    <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`,  `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-    <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`,  `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-    <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`,  `<button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-    <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button>`]
-
-]
+    [
+      1,
+      new Date(2019, 1, 4),
+      "Grace",
+      "Centro",
+      ["Monitor GPRS 3000", "Motherboard ASUS 1500"],
+    ],
+    [
+      2,
+      new Date(2019, 0, 1),
+      "Ada",
+      "Centro",
+      ["Monitor GPRS 3000", "Motherboard ASUS 1500"],
+    ],
+    [
+      3,
+      new Date(2019, 0, 2),
+      "Grace",
+      "Caballito",
+      ["Monitor ASC 543", "Motherboard MZI"],
+    ],
+    [
+      4,
+      new Date(2019, 0, 10),
+      "Ada",
+      "Centro",
+      ["Monitor ASC 543", "Motherboard ASUS 1200"],
+    ],
+    [
+      5,
+      new Date(2019, 0, 12),// toLocaleDateString()
+      "Grace",
+      "Caballito",
+     ["Monitor GPRS 3000", "Motherboard ASUS 1200"],
+    ],
+  ]
 
 
 const insertTdVentas = (array) => {
@@ -284,20 +302,22 @@ const insertTdVentas = (array) => {
     const fila = document.querySelectorAll('tr');
 
     for (let i = 0; i < array.length; i++){
-        const fila1 = array[i][1];
-        // toLocaleDateString()
-        const fila2 = array[i][1];
-        const fila3 = array[i][3];
-        const fila4 = array[i][4];
-        const fila5 = array[i][5];
+        for (let j = 0; j < array[i].length; j++){
+            const fecha = array[j][1]; 
+            const vendedora = array[j][2];/*
+            const sucursal = ventas[i][3];
+            const componente = ventas[i][4]; */
+            //const precio = ventas[i][5];
+            //const tr = document.createElement('tr');
 
-        const td = document.createElement('td');
+            fila.innerHTML = `<td>${fecha}</td><td>${vendedora}</td>`;
 
-        td.innerHTML = `<td>${fila1}</td>`;
-
-        tablaVentas.appendChild(td);
+            tablaVentas.appendChild(fila); /*  */
+        }
+    
     }
 }
 
 insertTdVentas(ventas)
 
+/*<td>${vendedora}</td><td>${sucursal}</td><td>${componente}</td>*/
