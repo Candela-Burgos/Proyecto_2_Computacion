@@ -25,7 +25,7 @@ const btnEliminar = document.querySelector('#btn-eliminar');
 const listaVendedoras = document.querySelector('.vendedoras');
 const listaComponentes = document.querySelector('.componentes');
 const listaSucursales = document.querySelector('.sucursales');
-const inputDate = document.querySelectorAll('#input-date')//nose si va
+const inputDate = document.querySelectorAll('.input-date')//nose si va
 
 /****************************************************************************************/
 
@@ -47,8 +47,11 @@ const sucursales = ["Centro", "Caballito"];
 
 //----------------------------------- ABRIR MODAL AGREGAR VENTA -----------------------------------
 
+const blur = document.querySelector('#blur');
+
 const abrirModalAgregarVenta = () => {
     agregarVenta.style.display = 'flex';
+    blur.style.filter = 'blur(3px)';
 }
 
 btnVenta.addEventListener('click', abrirModalAgregarVenta)
@@ -57,13 +60,15 @@ btnVenta.addEventListener('click', abrirModalAgregarVenta)
 
 const cerrarModalAgregarVenta = () => {
     agregarVenta.style.display = 'none';
+    blur.style.filter = 'none';
 }
 
 btnCancelarAgregar.addEventListener('click', cerrarModalAgregarVenta)
 
 window.addEventListener('click', (e) => {
     if (e.target == agregarVenta){
-        agregarVenta.style.display = 'none'
+        agregarVenta.style.display = 'none';
+        blur.style.filter = 'none';
     }
 })
 
@@ -79,6 +84,7 @@ window.addEventListener('keydown', (e) => {
 
 const abrirModalEditar = () => {
     editarVenta.style.display = 'flex';
+    blur.style.filter = 'blur(3px)';
 }
 
 for (let i = 0; i < btnEditar.length; i++){
@@ -89,13 +95,15 @@ for (let i = 0; i < btnEditar.length; i++){
 
 const cerrarModalEditar = () => {
     editarVenta.style.display = 'none';
+    blur.style.filter = 'none';
 }
 
 btnCancelarEditar.addEventListener('click', cerrarModalEditar)
 
 window.addEventListener('click', (e) => {
     if (e.target == editarVenta){
-        editarVenta.style.display = 'none'
+        editarVenta.style.display = 'none';
+        blur.style.filter = 'none';
     }
 })
 
@@ -111,6 +119,7 @@ window.addEventListener('keydown', (e) => {
 
 const abrirModalBorrar = () => {
     eliminarVenta.style.display = 'flex';
+    blur.style.filter = 'blur(3px)';
 }
 
 for (let i = 0; i < btnBorrar.length; i++){
@@ -121,13 +130,15 @@ for (let i = 0; i < btnBorrar.length; i++){
 
 const cerrarModalBorrar = () => {
     eliminarVenta.style.display = 'none';
+    blur.style.filter = 'none';
 }
 
 btnCancelarEliminar.addEventListener('click', cerrarModalBorrar)
 
 window.addEventListener('click', (e) => {
     if (e.target == eliminarVenta){
-        eliminarVenta.style.display = 'none'
+        eliminarVenta.style.display = 'none';
+        blur.style.filter = 'none';
     }
 })
 
@@ -201,87 +212,7 @@ insertOptionSucursal()
 
 /*******************************************************************/
 
-
-// ------------------ LO DE ABAJO NO LO USO ------------------
-
-// Aqui se agregan los llamados de funciones
-
-/* const cargaPagina = () => {
-    drawVendedoras()
-    drawComponentes()
-    drawSucursales()
-}
-
-window.addEventListener('load', cargaPagina); */
-
-
-/* 
-const drawVendedoras = () =>{
-    const vendedoras = ["Ada", "Grace", "Hedy", "Sheryl"];
-    for (let i = 0; i < vendedoras.length; i++){
-        insertOptionVendedora(vendedoras[i]);
-    }
-
-}
-
-const insertOptionVendedora = (optionName) =>{
-    for (let i = 0; i < listaVendedoras.length; i++){
-        // inserto las option en html
-        let insertOptionHtml = `<option> ${optionName} </option>`;
-        listaVendedoras[i].insertAdjacentHTML('beforeend', insertOptionHtml);
-    }
-} */
-
-
-/* const drawComponentes = () =>{
-    const componentes = ["Monitor GPRS 3000", "Motherboard ASUS 1500", "Monitor ASC 543", "Motherboard ASUS 1200", "Motherboard MZI", "HDD Toyiva", "HDD Wezter Dishital", "RAM Quinston", "RAM Quinston Fury"];
-    for (let i = 0; i < componentes.length; i++){
-        insertOptionComponente(componentes[i]);
-    }
-
-}
-
-const insertOptionComponente = (optionName) =>{
-    for (let i = 0; i < listaComponentes.length; i++){
-        // inserto las option en html
-        let insertOptionHtml = `<option> ${optionName} </option>`;
-        listaComponentes[i].insertAdjacentHTML('beforeend', insertOptionHtml);
-    }
-}  */
-/* 
-const insertOptionComponente = () => {
-    for (let i = 0; i < precios.length; i++){
-        // inserto las option en html
-        let option = document.createElement('option');
-        option.innerHTML = listaComponentes[i][0];
-        listaComponentes.appendChild(option);
-    }
-}
-insertOptionComponente() */
-
-
-/* const drawSucursales = () =>{
-    const sucursales = ["Centro", "Caballito"];
-    for (let i = 0; i < sucursales.length; i++){
-        insertOptionSucursal(sucursales[i]);
-    }
-
-}
-
-const insertOptionSucursal = (optionName) =>{
-    for (let i = 0; i < listaSucursales.length; i++){
-        // inserto las option en html
-        let insertOptionHtml = `<option> ${optionName} </option>`;
-        listaSucursales[i].insertAdjacentHTML('beforeend', insertOptionHtml);
-    }
-} */
-
-// ------------------ LO DE ARRIBA NO LO USO ------------------
-
-
-/*******************************************************************/
-
-//----------------------------------- IMPRIMIR DATOS EN TABLA -----------------------------------
+//----------------------------------- IMPRIMIR DATOS EN TABLA VENTAS -----------------------------------
 
 // Variable que cambia el formato de la fecha para que se vea bien
 const format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date);
@@ -291,19 +222,14 @@ const tablaVentas = document.querySelector('#tabla-ventas');
 
 const insertTdVentas = () => {
     for (let i = 0; i < ventas.length; i++){
-        const tr = document.createElement('tr');
-        tablaVentas.appendChild(tr);
+        const trV = document.createElement('tr');
+        tablaVentas.appendChild(trV);
         for (let j = 0; j < ventas[i].length; j++){
-            const fecha = format(ventas[i][1], 'es'); 
-            const vendedora = ventas[i][2];
-            const sucursal = ventas[i][3];
-            const componente = ventas[i][4];
-
-            tr.innerHTML = 
-            `<td>${fecha}</td>
-            <td>${vendedora}</td>
-            <td>${sucursal}</td>
-            <td>${componente}</td>
+            trV.innerHTML = 
+            `<td>${format(ventas[i][1], 'es')}</td>
+            <td>${ventas[i][2]}</td>
+            <td>${ventas[i][3]}</td>
+            <td>${ventas[i][4]}</td>
             <td>Precio Total</td>
             <td> 
             <button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
@@ -316,6 +242,56 @@ const insertTdVentas = () => {
 }
 
 insertTdVentas(ventas)
+
+/*******************************************************************/
+
+//----------------------------------- IMPRIMIR DATOS EN TABLA SUCURSAL -----------------------------------
+
+// Me traigo la tabla desde html
+const tablaSucursal = document.querySelector('#tabla-sucursal');
+
+const insertTdSucursal = () => {
+    for (let i = 0; i < sucursales.length; i++){
+        const trS = document.createElement('tr');
+        tablaSucursal.appendChild(trS);
+        for (let j = 0; j < sucursales[i].length; j++){
+            trS.innerHTML = 
+            `<td>${sucursales[i]}</td>
+            <td>Precio Total</td>`
+        }
+    }
+}
+
+insertTdSucursal(sucursales);
+
+/*******************************************************************/
+
+//----------------------------------- IMPRIMIR DATOS REPORTES -----------------------------------
+
+// Me traigo los datos desde html
+const productoEstrella = document.querySelector('#producto-estrella');
+
+const insertProductoEstrella = () => {
+    const dato = document.createElement('b');
+    productoEstrella.appendChild(dato);
+    dato.innerHTML = `<b>Producto estella.</b>`;
+}
+
+insertProductoEstrella();
+
+/*******************************************************************/
+
+const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
+
+const insertIngresoVendedora = () => {
+    const ingreso = document.createElement('b');
+    vendedoraIngreso.appendChild(ingreso);
+    ingreso.innerHTML = `<b>Ingreso de Vendedora.</b>`;
+}
+
+insertIngresoVendedora();
+
+/*******************************************************************/
 
 // nose como insertar el input type date en las modales
 
@@ -336,3 +312,36 @@ insertTdVentas(ventas)
 }
 
 insertTdPrecio()  */
+
+//----------------------------------- FUNCION PRECIO MAQUINA -----------------------------------
+
+const precioMaquina = (array) => {
+    let suma = 0;
+    for (let precio of precios) {
+        array.forEach(element => {
+            if (precio.includes(element)){
+                suma += precio[1];
+            }
+        })
+    }
+    return suma
+}
+
+//console.log(precioMaquina(['Monitor GPRS 3000', 'Motherboard ASUS 1500']));
+
+//----------------------------------- FUNCION VENTA VENDEDORA -----------------------------------
+
+const ventasVendedora = (vendedora) => {
+    let ventasVendedoraTotal = 0;
+    for (let venta of ventas){
+        if (venta[2].includes(vendedora)){
+            ventasVendedoraTotal += precioMaquina(venta[4])
+        }
+    }
+    return ventasVendedoraTotal;
+}
+
+//ventasVendedora(ventas)
+
+//console.log(ventasVendedora('Grace')); // 900
+

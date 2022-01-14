@@ -24,6 +24,8 @@
         <div class="container-global">
 
             <!-- COMIENZA MI VENTA SUCURSAL -->
+            
+        <div id="blur">
 
             <div class="caja1 ventas-sucursal">
 
@@ -35,26 +37,12 @@
 
                 <div class="lista-sucursal">
 
-                    <table>
+                    <table id="tabla-sucursal">
 
                         <tr>
 
                             <th>Sucursal</th>
                             <th>Total Ventas</th>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>Centro</td>
-                            <td>990</td>
-
-                        </tr>
-
-                        <tr>
-
-                            <td>Caballito</td>
-                            <td>580</td>
 
                         </tr>
 
@@ -87,8 +75,8 @@
 
                 <div class="datos-reportes">
 
-                    <p>Productos estrella: <b>Monitor GPRS 3000</b> </p>
-                    <p>Vendedora que más ingresos generó: <b>Grace</b> </p>
+                    <p>Productos estrella: <b id="producto-estrella"></b> </p>
+                    <p>Vendedora que más ingresos generó: <b id="vendedora-ingreso"></b> </p>
 
                    <!-- CADA VEZ QUE AGREGUE UNA NUEVA VENTA SE AGREGA:
 
@@ -163,6 +151,7 @@
                     
             </div>
 
+        </div>
             <!-- TERMINAN MIS VENTAS -->
 
             <!-- COMIENZA MI MODAL AGREGAR VENTA -->
@@ -221,7 +210,7 @@
                         </select>
 
                         <label>Fecha</label>
-                        <input type="date" id="input-date">
+                        <input type="date" class="input-date">
                         
                     </form>
 
@@ -295,7 +284,7 @@
                         </select>
 
                         <label>Fecha</label>
-                        <input type="date" id="input-date">
+                        <input type="date" class="input-date">
                         
                     </form>
 

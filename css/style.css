@@ -12,6 +12,18 @@ body{
 
 /* COMIENZA MI CSS GLOBAL */
 
+#blur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
 .container-global{
     display: flex;
     justify-content: center;
