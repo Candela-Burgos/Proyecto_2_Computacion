@@ -176,29 +176,23 @@ tr:hover td{
     background-color: transparent;
     border: none;
     cursor: pointer;
-}
-
-.btn-editar > i{
     color: #54b864;
     padding: .5em;
 }
 
-.btn-editar:hover > i {
+.btn-editar:hover {
     color: #03941b;
 }
 
-.btn-borrar{
+.btn-borrar {
     background-color: transparent;
     border: none;
     cursor: pointer;
-}
-
-.btn-borrar > i{
     color: #e70000;
     padding: .5em;
 }
 
-.btn-borrar:hover > i {
+.btn-borrar:hover {
     color: #ff0000;
 }
 

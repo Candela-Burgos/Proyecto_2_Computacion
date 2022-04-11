@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <title>Modulo 4</title>
+<head>
+    <title>Modulo 4</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
@@ -16,9 +16,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
 
-    </head>
-    <body>
-        
+</head>
+<body>
+     
         <!-- COMIENZA MI CONTENEDOR GLOBAL -->
 
         <div class="container-global">
@@ -37,14 +37,25 @@
 
                 <div class="lista-sucursal">
 
-                    <table id="tabla-sucursal">
+                    <table>
 
-                        <tr>
+                        <thead>
 
                             <th>Sucursal</th>
                             <th>Total Ventas</th>
 
-                        </tr>
+                        </thead>
+                        <tbody id="tabla-sucursal">
+                            <tr>
+                                <tr>
+                                <td>Centro</td>
+                                <td id="ventasCentro"></td>
+                            </tr>
+                            <tr>
+                                <td>Caballito</td>
+                                <td id="ventasCaballito"></td>
+                            </tr>
+                        </tbody>
 
                     </table>
 
@@ -103,9 +114,9 @@
 
                 <div class="lista-ventas">
 
-                    <table id="tabla-ventas">
+                    <table>
 
-                        <tr>
+                        <thead>
 
                             <th>Fecha</th>
                             <th>Vendedora</th>
@@ -114,8 +125,10 @@
                             <th>Precio</th>
                             <th>Acciones</th>
 
-                        </tr>
-
+                        </thead>
+                        <tbody id="tabla-ventas">
+                            
+                        </tbody>
                         <!-- <tr>
 
                             <td></td>
@@ -166,14 +179,14 @@
 
                     </div>
 
-                    <form>
+                    <form id="form-agregar">
 
                         <label>Vendedora</label>
-                        <select class="vendedoras" name="vendedora">
+                        <select class="vendedoras-ventas" name="vendedora">
 
-                            <!-- <option disabled="">Elige una vendedora</option>
+                            <option disabled="">Elige una vendedora</option>
 
-                            <option value="Grace">Grace</option>
+                            <!-- <option value="Grace">Grace</option>
 
                             <option value="Ada">Ada</option>
 
@@ -184,11 +197,11 @@
                         </select>
 
                         <label>Componentes</label><!-- encontrar que tipo de input es, y cambiarlo -->
-                        <select multiple class="componentes" name="componentes">
+                        <select multiple class="componentes-ventas" name="componentes">
 
-                            <!-- <option disabled="">Elige un componente</option>
+                            <option disabled="">Elige un componente</option>
 
-                            <option value="Monitor-GPRS-3000">Monitor GPRS 3000</option>
+                            <!-- <option value="Monitor-GPRS-3000">Monitor GPRS 3000</option>
 
                             <option value="Motherboard-ASUS-1500">Motherboard ASUS 1500</option>
 
@@ -199,18 +212,18 @@
                         </select>
 
                         <label>Sucursal</label>
-                        <select class="sucursales" name="sucursal">
+                        <select class="sucursales-ventas" name="sucursal">
 
-                            <!-- <option disabled="">Elige una sucursal</option>
+                           <option disabled="">Elige una sucursal</option>
 
-                            <option value="centro">Centro</option>
+                             <!-- <option value="centro">Centro</option>
 
                             <option value="caballito">Caballito</option> -->
 
                         </select>
 
                         <label>Fecha</label>
-                        <input type="date" class="input-date">
+                        <input type="date" id="input-date-ventas">
                         
                     </form>
 
@@ -240,51 +253,31 @@
 
                     </div>
 
-                    <form>
+                    <form id="form-editar">
 
                         <label>Vendedora</label>
-                        <select class="vendedoras" name="vendedora">
+                        <select class="vendedoras-editar" name="vendedora">
 
-                            <!-- <option disabled="">Elige una vendedora</option>
-
-                            <option value="Grace">Grace</option>
-
-                            <option value="Ada">Ada</option>
-
-                            <option value="Hedy">Hedy</option>
-
-                            <option value="Sheryl">Sheryl</option> -->
+                            <option disabled="">Elige una vendedora</option>
 
                         </select>
 
-                        <label>Componentes</label><!-- encontrar que tipo de input es, y cambiarlo -->
-                        <select multiple class="componentes" name="componentes">
+                        <label>Componentes</label>
+                        <select multiple class="componentes-editar" name="componentes">
 
-                            <!-- <option disabled="">Elige un componente</option>
-
-                            <option value="Monitor-GPRS-3000">Monitor GPRS 3000</option>
-
-                            <option value="Motherboard-ASUS-1500">Motherboard ASUS 1500</option>
-
-                            <option value="Monitor-ASC-543">Monitor ASC 543</option>
-
-                            <option value="Motherboard-ASUS-1200">Motherboard ASUS 1200</option> -->
+                           <option disabled="">Elige un componente</option>
 
                         </select>
 
                         <label>Sucursal</label>
-                        <select class="sucursales" name="sucursal">
+                        <select class="sucursales-editar" name="sucursal">
 
-                            <!-- <option disabled="">Elige una sucursal</option>
-
-                            <option value="centro">Centro</option>
-
-                            <option value="caballito">Caballito</option> -->
+                            <option disabled="">Elige una sucursal</option>
 
                         </select>
 
                         <label>Fecha</label>
-                        <input type="date" class="input-date">
+                        <input type="date" id="input-date-edit">
                         
                     </form>
 
@@ -339,7 +332,9 @@
         </div>
 
         <!-- TERMINA MI CONTENEDOR GLOBAL -->
-
-        <script src="javascript.js"></script>
-    </body>
+        
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/tabla.js"></script>
+</body>
 </html>
