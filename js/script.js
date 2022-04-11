@@ -1,3 +1,5 @@
+/***************************VARIABLES GLOBALES*************************/
+
 const btnVenta = document.querySelector('#btn-venta');
 
 const agregarVenta = document.querySelector('.agregar-venta'); // modal
@@ -41,257 +43,7 @@ let productoEliminarId = 0;
 let productoEditarId = 0;
 let nuevoArrVentas = [];
 
-/****************************************************************************************/
-
-//----------------------------------- ABRIR MODAL AGREGAR VENTA -----------------------------------
-
-const blur = document.querySelector('#blur');
-
-const abrirModalAgregarVenta = () => {
-    agregarVenta.style.display = 'flex';
-    blur.style.filter = 'blur(3px)';
-}
-
-btnVenta.addEventListener('click', abrirModalAgregarVenta)
-
-//----------------------------------- CERRAR MODAL AGREGAR VENTA -----------------------------------
-
-const cerrarModalAgregarVenta = () => {
-    agregarVenta.style.display = 'none';
-    blur.style.filter = 'none';
-}
-
-btnCancelarAgregar.addEventListener('click', cerrarModalAgregarVenta)
-
-window.addEventListener('click', (e) => {
-    if (e.target == agregarVenta) {
-        agregarVenta.style.display = 'none';
-        blur.style.filter = 'none';
-    }
-})
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' || e.key === 'Scape') {
-        cerrarModalAgregarVenta()
-    }
-})
-
-/****************************************************************************************/
-
-//----------------------------------- ABRIR MODAL EDITAR -----------------------------------
-
-const abrirModalEditar = () => {
-    editarVenta.style.display = 'flex';
-    blur.style.filter = 'blur(3px)';
-}
-
-for (let i = 0; i < btnEditar.length; i++) {
-    btnEditar[i].addEventListener('click', abrirModalEditar)
-}
-
-//----------------------------------- CERRAR MODAL EDITAR -----------------------------------
-
-const cerrarModalEditar = () => {
-    editarVenta.style.display = 'none';
-    blur.style.filter = 'none';
-}
-
-btnCancelarEditar.addEventListener('click', cerrarModalEditar)
-
-window.addEventListener('click', (e) => {
-    if (e.target == editarVenta) {
-        editarVenta.style.display = 'none';
-        blur.style.filter = 'none';
-    }
-})
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' || e.key === 'Scape') {
-        cerrarModalEditar()
-    }
-})
-
-/****************************************************************************************/
-
-//----------------------------------- ABRIR MODAL BORRAR -----------------------------------
-
-const abrirModalBorrar = () => {
-    eliminarVenta.style.display = 'flex';
-    blur.style.filter = 'blur(3px)';
-}
-
-for (let i = 0; i < btnBorrar.length; i++) {
-    btnBorrar[i].addEventListener('click', abrirModalBorrar)
-}
-
-//----------------------------------- CERRAR MODAL BORRAR ----------------------------------- 
-
-const cerrarModalBorrar = () => {
-    eliminarVenta.style.display = 'none';
-    blur.style.filter = 'none';
-}
-
-btnCancelarEliminar.addEventListener('click', cerrarModalBorrar)
-
-window.addEventListener('click', (e) => {
-    if (e.target == eliminarVenta) {
-        eliminarVenta.style.display = 'none';
-        blur.style.filter = 'none';
-    }
-})
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' || e.key === 'Scape') {
-        cerrarModalBorrar()
-    }
-})
-
-/****************************************************************************************/
-
-//----------------------------------- VENDEDORAS -----------------------------------
-
-//NO ME FUNCIONA
-
-const insertOptionVendedoraVentas = () => {
-    const { vendedoras } = local;
-    for (const vendedora of vendedoras) {
-        // inserto las option en html
-        const optionVendedoraVentas = document.createElement('option');
-        listaVendedorasVentas.appendChild(optionVendedoraVentas);
-        optionVendedoraVentas.innerHTML = `${vendedora}`;
-    }
-}
-/* 
-
-quise hacer lo mismo que con los btnEditar. porque no me funcionaban con querySelectorAll
-
-for (let i = 0; i < listaVendedoras.length; i++){
-    listaVendedoras
-} */
-
-insertOptionVendedoraVentas();
-
-const insertOptionVendedoraEditar = () => {
-    const { vendedoras } = local;
-    for (const vendedora of vendedoras) {
-        // inserto las option en html
-        const optionVendedoraEditar = document.createElement('option');
-        listaVendedorasEditar.appendChild(optionVendedoraEditar);
-        optionVendedoraEditar.innerHTML = `${vendedora}`;
-    }
-}
-
-insertOptionVendedoraEditar();
-
-/*******************************************************************/
-
-//----------------------------------- COMPONENTES -----------------------------------
-
-//NO ME FUNCIONA
-
-const insertOptionComponenteVentas = () => {
-    const { precios } = local;
-    for (const precio of precios) {
-        // inserto las option en html
-        const optionComponenteVentas = document.createElement('option');
-        listaComponentesVentas.appendChild(optionComponenteVentas);
-        optionComponenteVentas.innerHTML = `${precio.componente}`;
-    }
-}
-
-insertOptionComponenteVentas()
-
-// const cargarComponentes = () => {
-//     const {precios} = local
-//     for (const precio of precios) {
-
-//       const listaComponentes = document.createElement("option");
-//       //listaComponentes.classList.add("seleccionar-componentes");
-//       listaComponentes.setAttribute("value", `${precio.componente}`);
-//       //console.log(listaComponentes)
-//       listaComponentes.innerHTML = `${precio.componente}`;
-//       optionComponenteVentas.appendChild(listaComponentes);
-//     }
-// };  
-
-// cargarComponentes()
-
-const insertOptionComponenteEditar = () => {
-    const { precios } = local;
-    for (const precio of precios) {
-        // inserto las option en html
-        const optionComponenteEditar = document.createElement('option');
-        listaComponentesEditar.appendChild(optionComponenteEditar);
-        optionComponenteEditar.innerHTML = `${precio.componente}`;
-    }
-}
-
-insertOptionComponenteEditar()
-
-
-//option = select.options[select.selectedIndex].value;
-
-
-/*******************************************************************/
-
-//----------------------------------- SUCURSALES -----------------------------------
-
-//NO ME FUNCIONA
-
-const insertOptionSucursalVentas = () => {
-    const { sucursales } = local;
-    for (const sucursal of sucursales) {
-        // inserto las option en html
-        const optionSucursalVentas = document.createElement('option');
-        listaSucursalesVentas.appendChild(optionSucursalVentas);
-        optionSucursalVentas.innerHTML = `${sucursal}`;
-    }
-}
-
-insertOptionSucursalVentas()
-
-/**************************************************************************/
-
-const insertOptionSucursalEditar = () => {
-    const { sucursales } = local;
-    for (const sucursal of sucursales) {
-        // inserto las option en html
-        const optionSucursalEditar = document.createElement('option');
-        listaSucursalesEditar.appendChild(optionSucursalEditar);
-        optionSucursalEditar.innerHTML = `${sucursal}`;
-    }
-}
-
-insertOptionSucursalEditar()
-
-//----------------------------------- (falta)FECHA -----------------------------------
-
-// //VENTAS
-
-// const insertOptionDateVentas = () => {
-//     const inputFechaVenta = document.createElement('input');
-//     inputFechaVenta.setAttribute('type', 'date');
-//     inputFechaVenta.setAttribute('id', 'input-date-ventas');
-//     inputFechaVenta.setAttribute('onChange', 'formatoFecha(nuevoArrVentas)');
-//     formVentas.appendChild(inputFechaVenta);
-// }
-
-// insertOptionDateVentas();
-
-// //EDITAR
-
-// const insertOptionDateEditar = () => {
-//     const inputFechaEditar = document.createElement('input');
-//     inputFechaEditar.setAttribute('type', 'date');
-//     inputFechaEditar.setAttribute('id', 'input-date-edit');
-//     inputFechaEditar.setAttribute('onChange', 'formatoFecha(nuevoArrVentas)');
-//     formEditar.appendChild(inputFechaEditar);
-// }
-
-// insertOptionDateEditar();
-
-//********************************************************************/
-
+//****************************************************************************** 
 
 // 1 - precioMaquina(componentes): recibe un array de componentes y devuelve el precio de la máquina que se puede armar con esos componentes, que es la suma de los precios de cada componente incluido.
 
@@ -596,14 +348,25 @@ console.log(renderPorSucursal())
 // Vendedora que más ingresos generó: Grace
 
 const render = () => {
-    const {ventas} = local;
-    const vendConMasIngresos = ventas.forEach(venta => {
-        const {fecha} = venta;
-        return {
-            vendedoraQueMasIngresosGenero: mejorVendedoraDelAño(fecha.getFullYear())
-        }
-    })
-    return vendConMasIngresos
+    // const {ventas} = local;
+    // const vendConMasIngresos = ventas.forEach(venta => {
+    //     const {fecha} = venta;
+    //     return {
+    //         vendedoraQueMasIngresosGenero: mejorVendedoraDelAño(fecha.getFullYear())
+    //     }
+    // })
+    // return vendConMasIngresos
+    return `
+            Reporte 
+            Ventas por mes: 
+            Total de enero 2019: ${ventasMes(1, 2019)}
+            Total de febrero 2019: ${ventasMes(2, 2019)} 
+            Ventas por sucursal: 
+            Total de Centro: ${ventasSucursal("Centro")}
+            Total de Caballito: ${ventasSucursal("Caballito")}
+            Producto estrella: ${componenteMasVendido()}
+            Vendedora que más ingresos generó: ${mejorVendedoraDelAño( 2019)}
+            `;
 }
 
 console.log(render());
