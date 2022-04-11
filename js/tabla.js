@@ -23,8 +23,8 @@ const insertDatos = (arrVentas) => {
         trV.innerHTML = /* formatoFecha(arrVentas) */`
             <td>${format(venta.fecha, "es")}</td>
             <td>${venta.nombreVendedora}</td>
-            <td>${venta.componentes}</td>
             <td>${venta.sucursal}</td>
+            <td>${venta.componentes}</td>
             <td>${precioMaquina(venta.componentes)}</td>
             <td> 
             <i class="far fa-edit btn-editar" id="editar-btn" onclick="funcEdit(${venta.id})" aria-hidden="true"></i> 
@@ -120,6 +120,7 @@ btnEliminar.addEventListener("click", () => {
     //console.log(nuevoArrVentas)
     // insertPrecioSucur();
     // insertProductoEstrella();
+    //insertIngresoVendedora();
     insertDatos(nuevoArrVentas);
 });
 
@@ -157,6 +158,7 @@ let saveData = () => {
         limpiarTabla();
         insertPrecioSucur();
         insertProductoEstrella();
+        //insertIngresoVendedora();
         insertDatos(nuevoArrVentas);
     }
 };
@@ -200,6 +202,7 @@ let changeData = () => {
         limpiarTabla();
         insertPrecioSucur();
         insertProductoEstrella();
+        //insertIngresoVendedora();
         insertDatos(nuevoArrVentas)
     }
 };
@@ -212,34 +215,7 @@ btnGuardarEditar.addEventListener("click", () => {
 
 //*************************TERMINA EDITAR UNA VENTA****************************
 
-
-
-
-// nose como insertar el input type date en las modales
-
-
-//esta funcion solo imprime en la tabla los precios, no la suma de ellos
-/* const insertTdPrecio = () => {
-    for ( let i = 0; i < precios.length; i++){
-        const tr = document.createElement('tr');
-        tablaVentas.appendChild(tr);
-        for (let j = 0; j < ventas[i].length; j++){
-            const precio = precios[i][1];
-
-            tr.innerHTML = `<td>${precio}</td>`;
-
-        }
-    
-    }
-}
-
-insertTdPrecio()  */
-
-/**************************************************************************/
-
-
-
-//----------------------- VALUE DE VENDEDORA -------------------------//
+//--------------♥--------- VALUE ---------♥---------------//
 
 let validateAllItems = (comp, fec, vend, suc) => {
     return comp.length == 0 || fec == "" || vend == "" || suc == "";

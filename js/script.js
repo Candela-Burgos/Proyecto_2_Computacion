@@ -356,17 +356,20 @@ const render = () => {
     //     }
     // })
     // return vendConMasIngresos
-    return `
-            Reporte 
-            Ventas por mes: 
-            Total de enero 2019: ${ventasMes(1, 2019)}
-            Total de febrero 2019: ${ventasMes(2, 2019)} 
-            Ventas por sucursal: 
-            Total de Centro: ${ventasSucursal("Centro")}
-            Total de Caballito: ${ventasSucursal("Caballito")}
-            Producto estrella: ${componenteMasVendido()}
-            Vendedora que más ingresos generó: ${mejorVendedoraDelAño( 2019)}
-            `;
+
+    // return `
+    //         Reporte 
+    //         Ventas por mes: 
+    //         Total de enero 2019: ${ventasMes(1, 2019)}
+    //         Total de febrero 2019: ${ventasMes(2, 2019)} 
+    //         Ventas por sucursal: 
+    //         Total de Centro: ${ventasSucursal("Centro")}
+    //         Total de Caballito: ${ventasSucursal("Caballito")}
+    //         Producto estrella: ${componenteMasVendido()}
+    //         Vendedora que más ingresos generó: ${mejorVendedoraDelAño( 2019)}
+    //         `;
+
+    return `${mejorVendedoraDelAño( 2019)}`;
 }
 
 console.log(render());

@@ -391,3 +391,73 @@ form > input{
 }
  
 /* TERMINA ESTILO DE MIS MODALES */
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 862px) {
+    .caja1 {
+        width: 85%;
+    }
+
+    .reportes{
+        margin-left: 0;
+    }
+
+    .ventas-sucursal {
+        margin-right: 0;
+    }
+
+    .tabla-grande  tbody{
+        display: block;
+        height: 400px;
+        overflow-y:auto;
+        overflow-x:auto;
+    }
+    
+    .tabla-grande {
+        display: block;
+    }
+
+    .tabla-grande tbody td,
+    .tabla-grande thead th{
+        width: 16%;
+    }
+}
+
+@media screen and (max-width: 616px) {
+    .caja1 {
+        width: 85%;
+    }
+
+    .reportes{
+        margin-left: 0;
+    }
+
+    .ventas-sucursal {
+        margin-right: 0;
+    }
+
+    .tabla-grande tbody{
+        display: block;
+        height: 350px;
+        overflow-y:auto;
+        overflow-x:auto;
+    }
+
+    .tabla-grande thead{
+        display: block;
+    }
+
+    .tabla-grande tbody td,
+    .tabla-grande thead th{
+        width: 16%;
+    }
+
+    .tabla-grande tbody td{
+        font-size: .8em;
+    }
+
+    .tabla-grande thead th{
+        font-size: .8em;
+    }
+}
