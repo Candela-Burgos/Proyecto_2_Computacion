@@ -128,6 +128,7 @@ const mejorVendedoraDelAño = (anio) => {
     return nombre;
 };
 
+
 //console.log(mejorVendedoraDelAño(2019));
 
 const totalVendido = (ventas) => {
@@ -246,7 +247,7 @@ const componenteMasVendido = () => {
     return componenteEstrella
 }
 
-console.log("producto estrella: ", componenteMasVendido());
+//console.log("producto estrella: ", componenteMasVendido());
 
 // 7 - huboVentas(mes, anio): que indica si hubo ventas en un mes determinado. El mes es un número entero que va desde el 1 (enero) hasta el 12 (diciembre)
 
@@ -333,7 +334,7 @@ const renderPorSucursal = () => {
     return totalVent
 }
 
-console.log(renderPorSucursal())
+//console.log(renderPorSucursal())
 
 // 3 - render(): Tiene que mostrar la unión de los dos reportes anteriores, cual fue el producto más vendido y la vendedora que más ingresos generó
 
@@ -347,29 +348,11 @@ console.log(renderPorSucursal())
 // Producto estrella: Monitor GPRS 3000
 // Vendedora que más ingresos generó: Grace
 
-const render = () => {
-    // const {ventas} = local;
-    // const vendConMasIngresos = ventas.forEach(venta => {
-    //     const {fecha} = venta;
-    //     return {
-    //         vendedoraQueMasIngresosGenero: mejorVendedoraDelAño(fecha.getFullYear())
-    //     }
-    // })
-    // return vendConMasIngresos
-
-    // return `
-    //         Reporte 
-    //         Ventas por mes: 
-    //         Total de enero 2019: ${ventasMes(1, 2019)}
-    //         Total de febrero 2019: ${ventasMes(2, 2019)} 
-    //         Ventas por sucursal: 
-    //         Total de Centro: ${ventasSucursal("Centro")}
-    //         Total de Caballito: ${ventasSucursal("Caballito")}
-    //         Producto estrella: ${componenteMasVendido()}
-    //         Vendedora que más ingresos generó: ${mejorVendedoraDelAño( 2019)}
-    //         `;
-
-    return `${mejorVendedoraDelAño( 2019)}`;
+const render = (sucursalPrecio, productEstrella, vendedoraAño, datosTabla) => {
+    // sucursalPrecio();
+    // productEstrella();
+    // vendedoraAño();
+    // datosTabla(nuevoArrVentas);
 }
 
 console.log(render());

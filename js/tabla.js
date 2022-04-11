@@ -60,7 +60,7 @@ const insertPrecioSucur = () => {
     sucurCaballito.innerHTML = cantidadVentas("Caballito");
 }
 
-insertPrecioSucur();
+//insertPrecioSucur();
 
 /*******************************************************************/
 
@@ -70,30 +70,24 @@ insertPrecioSucur();
 const productoEstrella = document.querySelector('#producto-estrella');
 
 const insertProductoEstrella = () => {
-    const {precios} = local;
-    for (const precio of precios) {
-        const {componente} = precio;
-        const dato = document.createElement('b');
-        productoEstrella.appendChild(dato);
-        if (componenteMasVendido() === componente){
-            return dato.innerHTML += `<b>${componenteMasVendido()}</b>`;
-        }
-    }
+    return productoEstrella.innerHTML = componenteMasVendido();
 }
 
-insertProductoEstrella();
+//insertProductoEstrella();
 
 /*******************************************************************/
 
 const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
 
 const insertIngresoVendedora = () => {
-    const ingreso = document.createElement('b');
-    vendedoraIngreso.appendChild(ingreso);
-    ingreso.innerHTML = `<b>${render()}</b>`;
+    // const {ventas} = local
+    // for (const venta of ventas) {
+    //     const {fecha} = venta;
+        return vendedoraIngreso.innerHTML = mejorVendedoraDelAño(2019);
+    // }
 }
 
-insertIngresoVendedora();
+//insertIngresoVendedora();
 
 /*******************************************************************/
 
@@ -121,7 +115,8 @@ btnEliminar.addEventListener("click", () => {
     // insertPrecioSucur();
     // insertProductoEstrella();
     //insertIngresoVendedora();
-    insertDatos(nuevoArrVentas);
+    render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
+    // insertDatos(nuevoArrVentas);
 });
 
 let limpiarTabla = () => {
@@ -156,10 +151,11 @@ let saveData = () => {
         });
         //console.log(nuevoArrVentas)
         limpiarTabla();
-        insertPrecioSucur();
-        insertProductoEstrella();
-        //insertIngresoVendedora();
-        insertDatos(nuevoArrVentas);
+        // insertPrecioSucur();
+        // insertProductoEstrella();
+        // insertIngresoVendedora();
+        render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
+        // insertDatos(nuevoArrVentas);
     }
 };
 
@@ -200,10 +196,11 @@ let changeData = () => {
                 
         //console.log(nuevoArrVentas)
         limpiarTabla();
-        insertPrecioSucur();
-        insertProductoEstrella();
-        //insertIngresoVendedora();
-        insertDatos(nuevoArrVentas)
+        // insertPrecioSucur();
+        // insertProductoEstrella();
+        // insertIngresoVendedora();
+        render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
+        // insertDatos(nuevoArrVentas)
     }
 };
 
