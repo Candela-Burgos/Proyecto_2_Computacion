@@ -67,6 +67,16 @@ body{
     background-color: #8633cf;
 }
 
+.titulo-ventas{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1em 2em 1em 2em;
+    background-color: #8633cf;
+}
+
 .botones{
     display: flex;
     justify-content: flex-end;
@@ -277,14 +287,6 @@ form > input{
     background-color: #efe0fc;
 }
 
-/* .input-fecha{
-    width: 80%;
-    border: 1px solid #000;
-    padding: .5em;
-    margin-bottom: 2em;
-    background-color: #efe0fc;
-} */
-
 /* TERMINA ESTILO DE FORMULARIOS */
 
 /*************************************************/
@@ -409,6 +411,23 @@ form > input{
 }
 
 @media screen and (max-width: 862px) {
+    table {
+        text-align: center;
+    }
+
+    .titulo {
+        justify-content: center;
+    }
+
+    .datos-reportes {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .datos-reportes > p{
+        text-align: center;
+    }
+
     .caja1 {
         width: 85%;
     }
@@ -500,7 +519,11 @@ form > input{
     }
 }
 
-@media screen and (max-width: 436px) {
+@media screen and (max-width: 437px) {
+    .datos-reportes > p{
+        padding: 1em .5em;
+    }
+
     .caja1 {
         width: 85%;
     }
