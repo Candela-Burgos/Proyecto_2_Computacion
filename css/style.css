@@ -394,6 +394,20 @@ form > input{
 
 /* RESPONSIVE */
 
+@media screen and (max-width: 970px) {
+    .modal-agregar {
+        width: 70%;
+    }
+
+    .modal-editar {
+        width: 70%;
+    }
+
+    .modal-eliminar {
+        width: 50%;
+    }
+}
+
 @media screen and (max-width: 862px) {
     .caja1 {
         width: 85%;
@@ -407,7 +421,7 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande{
+    .tabla-grande {
         display: block;
         height: 400px;
         overflow-x:auto;
@@ -415,11 +429,6 @@ form > input{
     
     .tabla-grande {
         display: block;
-    }
-
-    .tabla-grande tbody td,
-    .tabla-grande thead th{
-        width: 16%;
     }
 }
 
@@ -477,6 +486,18 @@ form > input{
     .tabla-grande thead th{
         font-size: 1em;
     }
+
+    .modal-agregar {
+        width: 80%;
+    }
+
+    .modal-editar {
+        width: 85%;
+    }
+
+    .modal-eliminar {
+        width: 80%;
+    }
 }
 
 @media screen and (max-width: 436px) {
@@ -506,7 +527,6 @@ form > input{
         font-size: .9em;
     }
 }
-
 
 @media screen and (max-width: 400px) {
     .caja1 {

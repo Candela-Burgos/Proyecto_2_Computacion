@@ -1,27 +1,23 @@
 //----------------------------------- IMPRIMIR DATOS EN TABLA VENTAS -----------------------------------
 
-// Variable que cambia el formato de la fecha para que se vea bien
-let format = (date, locale, options) => new Intl.DateTimeFormat(locale, options).format(date);
+// Parsear Fecha
+const formatDate = (date) => {
+    let dd = (date.getDate() < 10 ? '0' : '') + date.getUTCDate();
+    let anio = date.getFullYear();
+    let mm = ((date.getMonth() + 1) < 10 ? '0' : '') + (date.getMonth() + 1);
 
-// let formatoFecha = (arrVentas) =>{
-//     // const {ventas} = local;
-//     for (const venta of arrVentas) {
-//         const {fecha} = venta;
-//         return `${fecha.getUTCDate()}/${fecha.getUTCMonth()+1}/${fecha.getUTCFullYear()}`;
-//     }
-// } 
-// console.log(formatoFecha(nuevoArrVentas));
+    return `${dd}/${mm}/${anio}`
+}
 
 // Me traigo la tabla desde html
 const tablaVentas = document.querySelector('#tabla-ventas');
 
 const insertDatos = (arrVentas) => {
-    //const {ventas} = local;
     for (const venta of arrVentas) {
         const trV = document.createElement('tr');
         tablaVentas.appendChild(trV);
-        trV.innerHTML = /* formatoFecha(arrVentas) */`
-            <td>${format(venta.fecha, "es")}</td>
+        trV.innerHTML = `
+            <td>${formatDate(venta.fecha)}</td>
             <td>${venta.nombreVendedora}</td>
             <td>${venta.sucursal}</td>
             <td>${venta.componentes}</td>
@@ -36,58 +32,10 @@ const insertDatos = (arrVentas) => {
 
 insertDatos(nuevoArrVentas)
 
-//----------------------------------- IMPRIMIR DATOS EN TABLA SUCURSAL -----------------------------------
-
-// // Me traigo la tabla desde html
-// const sucurCentro = document.querySelector('#ventasCentro');
-// const sucurCaballito = document.querySelector('#ventasCaballito');
-
-// const cantidadVentas = (sucur, arrVentas) => {
-//     let totalVentas = 0;
-//     arrVentas.filter(venta => {
-//         if (venta.sucursal === sucur) {
-//             totalVentas += precioMaquina(venta.componentes)
-//         }
-//     })
-//     return totalVentas;
-// }
-
-// const insertPrecioSucur = () => {
-//     sucurCentro.innerHTML = cantidadVentas("Centro", nuevoArrVentas);
-//     sucurCaballito.innerHTML = cantidadVentas("Caballito", nuevoArrVentas);
-// }
-
-// insertPrecioSucur();
-
-/*******************************************************************/
-
-//----------------------------------- IMPRIMIR DATOS REPORTES -----------------------------------
-
-// // Me traigo los datos desde html
-// const productoEstrella = document.querySelector('#producto-estrella');
-
-// const insertProductoEstrella = () => {
-//     return productoEstrella.innerHTML = componenteMasVendido(nuevoArrPrecios);
-// }
-
-// insertProductoEstrella();
-
-/*******************************************************************/
-
-// const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
-
-// const insertIngresoVendedora = () => {
-//     return vendedoraIngreso.innerHTML = mejorVendedoraConIngresos(nuevoArrVentas);
-// }
-
-// insertIngresoVendedora();
-
-/*********************************LIMPIAR TABLA**********************************/
+//**********************************LIMPIAR TABLA**********************************/
 
 let limpiarTabla = () => {
     tablaVentas.innerHTML = "";
-    //console.log(tablaVentas)
-    //insertDatos()
 };
 
 //*************************COMIENZA BORRAR UNA VENTA****************************
@@ -106,10 +54,6 @@ const deleteData = () => {
     }
 
     limpiarTabla();
-    console.log(nuevoArrVentas)
-    // insertPrecioSucur();
-    // insertProductoEstrella();
-    // insertIngresoVendedora();
     render();
     insertDatos(nuevoArrVentas);
 }
@@ -120,14 +64,11 @@ btnEliminar.addEventListener("click", () => {
     blur.style.filter = "none";
 });
 
-//*****************************************************************************
-
 //*************************TERMINA BORRAR UNA VENTA****************************
 
 //*************************COMIENZA AGREGAR UNA VENTA****************************
 
 let saveData = () => {
-    //const {ventas} = local
     let componentes = getSelectComponentValues(listaComponentesVentas);
     let fecha = new Date(inputDateAgregar.value);
     let vendedora = listaVendedorasVentas.value;
@@ -143,11 +84,7 @@ let saveData = () => {
             sucursal: sucursal
         });
 
-        console.log(nuevoArrVentas)
         limpiarTabla();
-        // insertPrecioSucur();
-        // insertProductoEstrella();
-        // insertIngresoVendedora();
         render();
         insertDatos(nuevoArrVentas);
     }
@@ -167,11 +104,9 @@ let funcEdit = (id) => {
     editarVenta.style.display = 'flex';
     blur.style.filter = "blur(3px)";
     productoEditarId = id;
-    //alert(productoEditarId)
 };
 
 let changeData = () => {
-    //const {id} = nuevoArrVentas
     let componentes = getSelectComponentValues(listaComponentesEditar);
     let fecha = new Date(inputDateEditar.value);
     let vendedora = listaVendedorasEditar.value;
@@ -188,11 +123,7 @@ let changeData = () => {
             }
         })
                 
-        console.log(nuevoArrVentas)
         limpiarTabla();
-        // insertPrecioSucur();
-        // insertProductoEstrella();
-        // insertIngresoVendedora();
         render();
         insertDatos(nuevoArrVentas)
     }

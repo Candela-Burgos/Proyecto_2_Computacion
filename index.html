@@ -17,315 +17,165 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet"> 
 
 </head>
-<body>
+    <body>
      
         <!-- COMIENZA MI CONTENEDOR GLOBAL -->
 
         <div class="container-global">
 
             <!-- COMIENZA MI VENTA SUCURSAL -->
-            
-        <div id="blur">
 
-            <div class="caja1 ventas-sucursal">
-
-                <div class="titulo">
-
-                    <h1>Ventas por sucursal</h1>
-
-                </div>
-
-                <div class="lista-sucursal">
-
-                    <table>
-
-                        <thead>
-
-                            <th>Sucursal</th>
-                            <th>Total Ventas</th>
-
-                        </thead>
-                        <tbody id="tabla-sucursal">
-                            <tr>
-                                <tr>
-                                <td>Centro</td>
-                                <td id="ventasCentro"></td>
-                            </tr>
-                            <tr>
-                                <td>Caballito</td>
-                                <td id="ventasCaballito"></td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-
-                     <!-- CADA VEZ QUE AGREGUE UNA NUEVA VENTA SE AGREGA:
-                        <tr>
-
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                            CON LOS DATOS DENTRO (de la sucursal y total de ventas)-->
-
-                </div>
-
-            </div>
-
-            <!-- TERMINA MI VENTA SUCURSAL -->
-
-            <!-- COMIENZAN MIS REPORTES -->
-
-            <div class="caja1 reportes">
-
-                <div class="titulo">
-                    
-                    <h1>Reportes</h1>
-
-                </div>
-
-                <div class="datos-reportes">
-
-                    <p>Productos estrella: <b id="producto-estrella"></b> </p>
-                    <p>Vendedora que más ingresos generó: <b id="vendedora-ingreso"></b> </p>
-
-                   <!-- CADA VEZ QUE AGREGUE UNA NUEVA VENTA SE AGREGA:
-
-                        <b> "algo aca se agrega" </b>
-                        
-                            CON LOS DATOS DENTRO (de la sucursal y total de ventas)-->
-
-                </div>
-
-            </div>
-
-            <!-- TERMINAN MIS REPORTES -->
-
-            <!-- COMIENZAN MIS VENTAS -->
-
-            <div class="caja2 ventas">
-
-                <div class="titulo">
-
-                    <h1>Ventas</h1>
-                    <button id="btn-venta"> <i class="fas fa-plus-circle"></i> Nueva venta</button>
-
-                </div>
-
-                <div class="lista-ventas">
-
-                    <table class="tabla-grande">
-
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Vendedora</th>
+            <div id="blur">
+                <div class="caja1 ventas-sucursal">
+                    <div class="titulo">
+                        <h1>Ventas por sucursal</h1>
+                    </div>
+                    <div class="lista-sucursal">
+                        <table>
+                            <thead>
                                 <th>Sucursal</th>
-                                <th>Componentes</th>
-                                <th>Precio</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tabla-ventas">
-                            
-                        </tbody>
-                        <!-- <tr>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-editar"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="btn-borrar"><i class="fas fa-trash-alt"></i></button> 
-                            </td>
-
-                        </tr> -->
-
-                        <!-- CADA VEZ QUE AGREGUE UNA NUEVA VENTA SE AGREGA:
-                        <tr>
-
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                            CON LOS DATOS DENTRO -->
-
-
-                    </table>
-                    <!-- desde js que agregue la fila y la columna -->
-
-                </div>
-                    
-            </div>
-
-        </div>
-            <!-- TERMINAN MIS VENTAS -->
-
-            <!-- COMIENZA MI MODAL AGREGAR VENTA -->
-
-            <div class="agregar-venta">
-
-                <div class="modal-agregar">
-
-                    <div class="titulo">
-
-                        <h2 class="agregar">Agregar Venta</h2>
-
+                                <th>Total Ventas</th>
+                            </thead>
+                            <tbody id="tabla-sucursal">
+                                <tr>
+                                    <tr>
+                                    <td>Centro</td>
+                                    <td id="ventasCentro"></td>
+                                </tr>
+                                <tr>
+                                    <td>Caballito</td>
+                                    <td id="ventasCaballito"></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <form id="form-agregar">
-
-                        <label>Vendedora</label>
-                        <select class="vendedoras-ventas" name="vendedora">
-
-                            <option disabled="">Elige una vendedora</option>
-
-                            <!-- <option value="Grace">Grace</option>
-
-                            <option value="Ada">Ada</option>
-
-                            <option value="Hedy">Hedy</option>
-
-                            <option value="Sheryl">Sheryl</option> -->
-
-                        </select>
-
-                        <label>Componentes</label><!-- encontrar que tipo de input es, y cambiarlo -->
-                        <select multiple class="componentes-ventas" name="componentes">
-
-                            <option disabled="">Elige un componente</option>
-
-                            <!-- <option value="Monitor-GPRS-3000">Monitor GPRS 3000</option>
-
-                            <option value="Motherboard-ASUS-1500">Motherboard ASUS 1500</option>
-
-                            <option value="Monitor-ASC-543">Monitor ASC 543</option>
-
-                            <option value="Motherboard-ASUS-1200">Motherboard ASUS 1200</option> -->
-
-                        </select>
-
-                        <label>Sucursal</label>
-                        <select class="sucursales-ventas" name="sucursal">
-
-                           <option disabled="">Elige una sucursal</option>
-
-                             <!-- <option value="centro">Centro</option>
-
-                            <option value="caballito">Caballito</option> -->
-
-                        </select>
-
-                        <label>Fecha</label>
-                        <input type="date" id="input-date-ventas">
-                        
-                    </form>
-
-                    <div class="botones">
-
-                        <button id="btn-cancelar-agregar" class="btn-cancelar" >Cancelar</button>
-                        
-                        <button id="btn-guardar-agregar" class="btn-guardar" >Guardar</button>
-
-                    </div>
-
                 </div>
 
+                <!-- TERMINA MI VENTA SUCURSAL -->
+
+                <!-- COMIENZAN MIS REPORTES -->
+
+                <div class="caja1 reportes">
+                    <div class="titulo">                    
+                        <h1>Reportes</h1>
+                    </div>
+                    <div class="datos-reportes">
+                        <p>Productos estrella: <b id="producto-estrella"></b> </p>
+                        <p>Vendedora que más ingresos generó: <b id="vendedora-ingreso"></b> </p>
+                    </div>
+                </div>
+
+                <!-- TERMINAN MIS REPORTES -->
+
+                <!-- COMIENZAN MIS VENTAS -->
+
+                <div class="caja2 ventas">
+                    <div class="titulo">
+                        <h1>Ventas</h1>
+                        <button id="btn-venta"> <i class="fas fa-plus-circle"></i> Nueva venta</button>
+                    </div>
+                    <div class="lista-ventas">
+                        <table class="tabla-grande">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Vendedora</th>
+                                    <th>Sucursal</th>
+                                    <th>Componentes</th>
+                                    <th>Precio</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-ventas">                            
+                            </tbody>
+                        </table>
+                    </div>                    
+                </div>
             </div>
 
-            <!-- TERMINA MI MODAL AGREGAR VENTA -->
+                <!-- TERMINAN MIS VENTAS -->
 
-            <!-- COMIENZA MI MODAL EDITAR VENTA -->
+                <!-- COMIENZA MI MODAL AGREGAR VENTA -->
 
-            <div class="editar-venta">
-
-                <div class="modal-editar">
-
-                    <div class="titulo">
-
-                        <h2 class="editar">Editar Venta</h2>
-
-                    </div>
-
-                    <form id="form-editar">
-
-                        <label>Vendedora</label>
-                        <select class="vendedoras-editar" name="vendedora">
-
-                            <option disabled="">Elige una vendedora</option>
-
-                        </select>
-
-                        <label>Componentes</label>
-                        <select multiple class="componentes-editar" name="componentes">
-
-                           <option disabled="">Elige un componente</option>
-
-                        </select>
-
-                        <label>Sucursal</label>
-                        <select class="sucursales-editar" name="sucursal">
-
+                <div class="agregar-venta">
+                    <div class="modal-agregar">
+                        <div class="titulo">
+                            <h2 class="agregar">Agregar Venta</h2>
+                        </div>
+                        <form id="form-agregar">
+                            <label>Vendedora</label>
+                            <select class="vendedoras-ventas" name="vendedora">
+                                <option disabled="">Elige una vendedora</option>
+                            </select>
+                            <label>Componentes</label>
+                            <select multiple class="componentes-ventas" name="componentes">
+                                <option disabled="">Elige un componente</option>
+                            </select>
+                            <label>Sucursal</label>
+                            <select class="sucursales-ventas" name="sucursal">
                             <option disabled="">Elige una sucursal</option>
-
-                        </select>
-
-                        <label>Fecha</label>
-                        <input type="date" id="input-date-edit">
-                        
-                    </form>
-
-                    <div class="botones">
-
-                        <button id="btn-cancelar-editar" class="btn-cancelar" >Cancelar</button>
-                        
-                        <button id="btn-guardar-editar" class="btn-guardar" >Guardar</button>
-
+                            </select>
+                            <label>Fecha</label>
+                            <input type="date" id="input-date-ventas">                        
+                        </form>
+                        <div class="botones">
+                            <button id="btn-cancelar-agregar" class="btn-cancelar" >Cancelar</button>                        
+                            <button id="btn-guardar-agregar" class="btn-guardar" >Guardar</button>
+                        </div>
                     </div>
-                
                 </div>
 
-            </div>
+                <!-- TERMINA MI MODAL AGREGAR VENTA -->
 
-            <!-- TERMINA MI MODAL EDITAR VENTA -->
+                <!-- COMIENZA MI MODAL EDITAR VENTA -->
 
-            <!-- COMIENZA MI MODAL ELIMINAR VENTA -->
-
-            <div class="eliminar-venta">
-
-                <div class="modal-eliminar">
-
-                    <div class="titulo">
-
-                        <h2 class="eliminar">Eliminar Venta</h2>
-
+                <div class="editar-venta">
+                    <div class="modal-editar">
+                        <div class="titulo">
+                            <h2 class="editar">Editar Venta</h2>
+                        </div>
+                        <form id="form-editar">
+                            <label>Vendedora</label>
+                            <select class="vendedoras-editar" name="vendedora">
+                                <option disabled="">Elige una vendedora</option>
+                            </select>
+                            <label>Componentes</label>
+                            <select multiple class="componentes-editar" name="componentes">
+                            <option disabled="">Elige un componente</option>
+                            </select>
+                            <label>Sucursal</label>
+                            <select class="sucursales-editar" name="sucursal">
+                                <option disabled="">Elige una sucursal</option>
+                            </select>
+                            <label>Fecha</label>
+                            <input type="date" id="input-date-edit">                        
+                        </form>
+                        <div class="botones">
+                            <button id="btn-cancelar-editar" class="btn-cancelar" >Cancelar</button>                        
+                            <button id="btn-guardar-editar" class="btn-guardar" >Guardar</button>
+                        </div>                
                     </div>
-
-                    <div class="texto-eliminar-venta">
-
-                        <h2>¿Estas segura?</h2>
-
-                        <p>Esta acción no se puede revertir.</p>
-
-                    </div>
-
-                    <div class="botones">
-
-                        <button id="btn-cancelar-eliminar" class="btn-cancelar" >Cancelar</button>
-                        
-                        <button id="btn-eliminar" class="btn-eliminar" >Eliminar</button>
-
-                    </div>
-
                 </div>
 
-            </div>
+                <!-- TERMINA MI MODAL EDITAR VENTA -->
+
+                <!-- COMIENZA MI MODAL ELIMINAR VENTA -->
+
+                <div class="eliminar-venta">
+                    <div class="modal-eliminar">
+                        <div class="titulo">
+                            <h2 class="eliminar">Eliminar Venta</h2>
+                        </div>
+                        <div class="texto-eliminar-venta">
+                            <h2>¿Estas segura?</h2>
+                            <p>Esta acción no se puede revertir.</p>
+                        </div>
+                        <div class="botones">
+                            <button id="btn-cancelar-eliminar" class="btn-cancelar" >Cancelar</button>                        
+                            <button id="btn-eliminar" class="btn-eliminar" >Eliminar</button>
+                        </div>
+                    </div>
+                </div>
 
             <!-- TERMINA MI MODAL ELIMINAR VENTA -->
 
@@ -333,10 +183,10 @@
 
         <!-- TERMINA MI CONTENEDOR GLOBAL -->
         
-    <script src="js/data.js"></script>
-    <script src="js/script.js"></script>
-    <script src="js/tabla.js"></script>
-    <script src="js/options.js"></script>
-    <script src="js/eventos.js"></script>
-</body>
+        <script src="js/data.js"></script>
+        <script src="js/script.js"></script>
+        <script src="js/tabla.js"></script>
+        <script src="js/options.js"></script>
+        <script src="js/eventos.js"></script>
+    </body>
 </html>
