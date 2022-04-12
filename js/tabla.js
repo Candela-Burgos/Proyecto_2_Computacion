@@ -34,63 +34,61 @@ const insertDatos = (arrVentas) => {
     }
 }
 
-nuevoArrVentas = local.ventas;
-
 insertDatos(nuevoArrVentas)
 
 //----------------------------------- IMPRIMIR DATOS EN TABLA SUCURSAL -----------------------------------
 
-// Me traigo la tabla desde html
-const sucurCentro = document.querySelector('#ventasCentro');
-const sucurCaballito = document.querySelector('#ventasCaballito');
+// // Me traigo la tabla desde html
+// const sucurCentro = document.querySelector('#ventasCentro');
+// const sucurCaballito = document.querySelector('#ventasCaballito');
 
-const cantidadVentas = (sucur) => {
-    let totalVentas = 0;
-    const {ventas} = local;
-    ventas.filter(venta => {
-        if (venta.sucursal === sucur) {
-            totalVentas += precioMaquina(venta.componentes)
-        }
-    })
-    return totalVentas;
-}
+// const cantidadVentas = (sucur, arrVentas) => {
+//     let totalVentas = 0;
+//     arrVentas.filter(venta => {
+//         if (venta.sucursal === sucur) {
+//             totalVentas += precioMaquina(venta.componentes)
+//         }
+//     })
+//     return totalVentas;
+// }
 
-const insertPrecioSucur = () => {
-    sucurCentro.innerHTML = cantidadVentas("Centro");
-    sucurCaballito.innerHTML = cantidadVentas("Caballito");
-}
+// const insertPrecioSucur = () => {
+//     sucurCentro.innerHTML = cantidadVentas("Centro", nuevoArrVentas);
+//     sucurCaballito.innerHTML = cantidadVentas("Caballito", nuevoArrVentas);
+// }
 
-//insertPrecioSucur();
+// insertPrecioSucur();
 
 /*******************************************************************/
 
 //----------------------------------- IMPRIMIR DATOS REPORTES -----------------------------------
 
-// Me traigo los datos desde html
-const productoEstrella = document.querySelector('#producto-estrella');
+// // Me traigo los datos desde html
+// const productoEstrella = document.querySelector('#producto-estrella');
 
-const insertProductoEstrella = () => {
-    return productoEstrella.innerHTML = componenteMasVendido();
-}
+// const insertProductoEstrella = () => {
+//     return productoEstrella.innerHTML = componenteMasVendido(nuevoArrPrecios);
+// }
 
-//insertProductoEstrella();
-
-/*******************************************************************/
-
-const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
-
-const insertIngresoVendedora = () => {
-    // const {ventas} = local
-    // for (const venta of ventas) {
-    //     const {fecha} = venta;
-        return vendedoraIngreso.innerHTML = mejorVendedoraDelAño(2019);
-    // }
-}
-
-//insertIngresoVendedora();
+// insertProductoEstrella();
 
 /*******************************************************************/
 
+// const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
+
+// const insertIngresoVendedora = () => {
+//     return vendedoraIngreso.innerHTML = mejorVendedoraConIngresos(nuevoArrVentas);
+// }
+
+// insertIngresoVendedora();
+
+/*********************************LIMPIAR TABLA**********************************/
+
+let limpiarTabla = () => {
+    tablaVentas.innerHTML = "";
+    //console.log(tablaVentas)
+    //insertDatos()
+};
 
 //*************************COMIENZA BORRAR UNA VENTA****************************
 
@@ -100,32 +98,27 @@ let funcDelete = (id) => {
     productoEliminarId = id;
 };
 
-btnEliminar.addEventListener("click", () => {
+const deleteData = () => {
     if (nuevoArrVentas.length == 0) {
         nuevoArrVentas = nuevoArrVentas.filter(({ id }) => id != productoEliminarId)
     } else {
         nuevoArrVentas = nuevoArrVentas.filter(({ id }) => id != productoEliminarId)
     }
 
-    blur.style.filter = "none";
-    eliminarVenta.style.display = 'none';
-
     limpiarTabla();
-    //console.log(nuevoArrVentas)
+    console.log(nuevoArrVentas)
     // insertPrecioSucur();
     // insertProductoEstrella();
-    //insertIngresoVendedora();
-    render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
-    // insertDatos(nuevoArrVentas);
-});
+    // insertIngresoVendedora();
+    render();
+    insertDatos(nuevoArrVentas);
+}
 
-let limpiarTabla = () => {
-    tablaVentas.innerHTML = "";
-    // trS.innerHTML = "";
-    // dato.innerHTML = "";
-    //console.log(tablaVentas)
-    //insertDatos()
-};
+btnEliminar.addEventListener("click", () => {
+    deleteData();
+    eliminarVenta.style.display = 'none';
+    blur.style.filter = "none";
+});
 
 //*****************************************************************************
 
@@ -149,13 +142,14 @@ let saveData = () => {
             componentes: componentes,
             sucursal: sucursal
         });
-        //console.log(nuevoArrVentas)
+
+        console.log(nuevoArrVentas)
         limpiarTabla();
         // insertPrecioSucur();
         // insertProductoEstrella();
         // insertIngresoVendedora();
-        render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
-        // insertDatos(nuevoArrVentas);
+        render();
+        insertDatos(nuevoArrVentas);
     }
 };
 
@@ -194,13 +188,13 @@ let changeData = () => {
             }
         })
                 
-        //console.log(nuevoArrVentas)
+        console.log(nuevoArrVentas)
         limpiarTabla();
         // insertPrecioSucur();
         // insertProductoEstrella();
         // insertIngresoVendedora();
-        render(insertPrecioSucur(), insertProductoEstrella(), insertIngresoVendedora(), insertDatos(nuevoArrVentas));
-        // insertDatos(nuevoArrVentas)
+        render();
+        insertDatos(nuevoArrVentas)
     }
 };
 

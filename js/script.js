@@ -28,7 +28,6 @@ const formVentas = document.querySelector('#form-agregar');
 const listaVendedorasVentas = document.querySelector('.vendedoras-ventas');
 const listaComponentesVentas = document.querySelector('.componentes-ventas');
 const listaSucursalesVentas = document.querySelector('.sucursales-ventas');
-//const inputFechaAgregar = document.querySelector('#input-date-ventas');
 const inputDateAgregar = document.querySelector('#input-date-ventas');
 
 const formEditar = document.querySelector('#form-editar');
@@ -42,6 +41,23 @@ const inputDateEditar = document.querySelector('#input-date-edit');
 let productoEliminarId = 0;
 let productoEditarId = 0;
 let nuevoArrVentas = [];
+let nuevoArrPrecios = [];
+
+nuevoArrPrecios = local.precios;
+nuevoArrVentas = local.ventas;
+
+/********************************SUCURSALES***********************************/
+
+const sucurCentro = document.querySelector('#ventasCentro');
+const sucurCaballito = document.querySelector('#ventasCaballito');
+
+/********************************PRODUCTO ESTRELLA***********************************/
+
+const productoEstrella = document.querySelector('#producto-estrella');
+
+/********************************VENDEDORA CON MAS INGRESOS***********************************/
+
+const vendedoraIngreso = document.querySelector('#vendedora-ingreso');
 
 //****************************************************************************** 
 
@@ -56,7 +72,7 @@ const precioComponente = (componente) => {
     }
 }
 
-//console.log(precioComponente('Monitor GPRS 3000'))
+// console.log(precioComponente('Monitor GPRS 3000'))
 
 const precioMaquina = (componentes) => {
     let acc = 0;
@@ -70,10 +86,9 @@ const precioMaquina = (componentes) => {
 
 // 2 - cantidadVentasComponente(componente): recibe un componente y devuelve la cantidad de veces que fue vendido, o sea que formó parte de una máquina que se vendió. La lista de ventas no se pasa por parámetro, se asume que está identificada por la variable ventas
 
-const cantidadVentasComponente = (componente) => {
+const cantidadVentasComponente = (componente, arrNuevo) => {
     let acc = 0;
-    const { ventas } = local;
-    for (const venta of ventas) {
+    for (const venta of arrNuevo) {
         if (venta.componentes.includes(componente)) {
             acc++
         }
@@ -81,13 +96,15 @@ const cantidadVentasComponente = (componente) => {
     return acc;
 }
 
-//console.log("cantidadVentasComponente: ", cantidadVentasComponente("Monitor ASC 543")); // 2
+// cantidadVentasComponente("Monitor GPRS 3000", nuevoArrVentas)
 
 // 3 - vendedoraDelMes(mes, anio), se le pasa dos parámetros numéricos, (mes, anio) y devuelve el nombre de la vendedora que más vendió en plata en el mes. O sea no cantidad de ventas, sino importe total de las ventas. El importe de una venta es el que indica la función precioMaquina. El mes es un número entero que va desde el 1 (enero) hasta el 12 (diciembre).
 
 const ventasPorFecha = (mes, anio, ventas) => ventas.filter(({ fecha }) => fecha.getMonth() + 1 === mes && fecha.getFullYear() === anio);
 
 const ventasPorVendedora = (nombre, ventas) => ventas.filter(({ nombreVendedora }) => nombreVendedora === nombre);
+
+// console.log(ventasPorVendedora("Grace", local.ventas))
 
 const ventasPorSucursal = (nombreSucursal, ventas) => ventas.filter(({ sucursal }) => sucursal === nombreSucursal);
 
@@ -108,26 +125,55 @@ const montoVentasPorVendedora = (vend, arrVentas) => {
 };
 
 // console.log("Ada:",montoVentasPorVendedora('Ada', local.ventas));
-// console.log("Grace:",montoVentasPorVendedora('Grace', local.ventas));
+// console.log("Grace:",montoVentasPorVendedora('Grace', nuevoArrVentas));
 // console.log("Hedy:",montoVentasPorVendedora('Hedy', local.ventas));
 // console.log("Sheryl:",montoVentasPorVendedora('Sheryl', local.ventas));
 
-const mejorVendedoraDelAño = (anio) => {
-    const { ventas } = local
-    const ventasAnio = ventasPorAño(anio, ventas)
-    let nombre = ""
-    for (const venta of ventasAnio) {
-        for (const venta1 of ventasAnio) {
-            const precioVenta = montoVentasPorVendedora(venta.nombreVendedora, ventasAnio);
-            const precioVenta1 = montoVentasPorVendedora(venta1.nombreVendedora, ventasAnio);
-            if (precioVenta > precioVenta1) {
-                nombre = venta.nombreVendedora
-            }
+const mejorVendedoraConIngresos = (arrVentas) => {
+    let suma = 0;
+    let nombreVendedoraMayor = "";
+    for (const venta of arrVentas) {
+        const {nombreVendedora} = venta;
+        const precioTotal = montoVentasPorVendedora(nombreVendedora, arrVentas);
+        if (suma < precioTotal) {
+            suma = precioTotal
+            nombreVendedoraMayor = nombreVendedora
         }
     }
-    return nombre;
+    return nombreVendedoraMayor
 };
 
+/***********************************************************************************/
+
+const cantidadVentas = (sucur, arrVentas) => {
+    let totalVentas = 0;
+    arrVentas.filter(venta => {
+        if (venta.sucursal === sucur) {
+            totalVentas += precioMaquina(venta.componentes)
+        }
+    })
+    return totalVentas;
+}
+
+/***********************************************************************************/
+//console.log(mejorVendedoraConIngresos(nuevoArrVentas));
+
+// const mejorVendedoraDelAño = (arrVentas) => {
+//     const { ventas } = local
+//     const ventasAnio = ventasPorAño(anio, ventas)
+//     let nombre = ""
+//     for (const venta of ventasAnio) {
+//         for (const venta1 of ventasAnio) {
+//             const precioVenta = montoVentasPorVendedora(venta.nombreVendedora, ventasAnio);
+//             const precioVenta1 = montoVentasPorVendedora(venta1.nombreVendedora, ventasAnio);
+//             if (precioVenta > precioVenta1) {
+//                 nombre = venta.nombreVendedora
+//             }
+//         }
+//     }
+//     return nombre;
+// };
+ 
 
 //console.log(mejorVendedoraDelAño(2019));
 
@@ -136,7 +182,6 @@ const totalVendido = (ventas) => {
     //const {ventas} = local
     for (const { componentes } of ventas) {
         acc += precioMaquina(componentes);
-
     }
     return acc;
 };
@@ -228,17 +273,19 @@ const ventasVendedora = (nombre) => {
     return totalVendido(ventasPorVendedora(nombre, ventas))
 }
 
-//console.log(ventasVendedora("Ada"));
+// console.log(ventasVendedora("Grace"));
 
 // 6 - componenteMasVendido(): Devuelve el nombre del componente que más ventas tuvo historicamente. El dato de la cantidad de ventas es el que indica la función cantidadVentasComponente
 
-const componenteMasVendido = () => {
+
+
+const componenteMasVendido = (arrNuevo) => {
     let mayorCantidad = 0;
     let componenteEstrella = "";
-    const { precios } = local;
-    for (const precio of precios) {
+    // const { precios } = local;
+    for (const precio of arrNuevo) {
         const {componente} = precio;
-        const cantidad = cantidadVentasComponente(componente)
+        const cantidad = cantidadVentasComponente(componente, nuevoArrVentas);
         if (mayorCantidad < cantidad) {
             mayorCantidad = cantidad
             componenteEstrella = precio.componente
@@ -348,13 +395,16 @@ const renderPorSucursal = () => {
 // Producto estrella: Monitor GPRS 3000
 // Vendedora que más ingresos generó: Grace
 
-const render = (sucursalPrecio, productEstrella, vendedoraAño, datosTabla) => {
-    // sucursalPrecio();
-    // productEstrella();
-    // vendedoraAño();
-    // datosTabla(nuevoArrVentas);
+
+const render = () => {
+    sucurCentro.innerHTML = cantidadVentas("Centro", nuevoArrVentas);
+    sucurCaballito.innerHTML = cantidadVentas("Caballito", nuevoArrVentas);
+
+    productoEstrella.innerHTML = componenteMasVendido(nuevoArrPrecios);
+
+    vendedoraIngreso.innerHTML = mejorVendedoraConIngresos(nuevoArrVentas);
 }
 
-console.log(render());
+render()
 
 //********************************************************************/

@@ -410,7 +410,6 @@ form > input{
     .tabla-grande  tbody{
         display: block;
         height: 400px;
-        overflow-y:auto;
         overflow-x:auto;
     }
     
@@ -440,17 +439,7 @@ form > input{
     .tabla-grande tbody{
         display: block;
         height: 350px;
-        overflow-y:auto;
         overflow-x:auto;
-    }
-
-    .tabla-grande thead{
-        display: block;
-    }
-
-    .tabla-grande tbody td,
-    .tabla-grande thead th{
-        width: 16%;
     }
 
     .tabla-grande tbody td{
@@ -459,5 +448,90 @@ form > input{
 
     .tabla-grande thead th{
         font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 504px) {
+    .caja1 {
+        width: 85%;
+    }
+
+    .reportes{
+        margin-left: 0;
+    }
+
+    .ventas-sucursal {
+        margin-right: 0;
+    }
+
+    .tabla-grande tbody{
+        display: block;
+        height: 350px;
+        overflow-x:auto;
+    }
+
+    .tabla-grande tbody td{
+        font-size: .7em;
+    }
+
+    .tabla-grande thead th{
+        font-size: .7em;
+    }
+}
+
+@media screen and (max-width: 436px) {
+    .caja1 {
+        width: 85%;
+    }
+
+    .reportes{
+        margin-left: 0;
+    }
+
+    .ventas-sucursal {
+        margin-right: 0;
+    }
+
+    .tabla-grande tbody{
+        display: block;
+        height: 300px;
+        overflow-x:auto;
+    }
+
+    .tabla-grande tbody td{
+        font-size: .6em;
+    }
+
+    .tabla-grande thead th{
+        font-size: .6em;
+    }
+}
+
+
+@media screen and (max-width: 400px) {
+    .caja1 {
+        width: 85%;
+    }
+
+    .reportes{
+        margin-left: 0;
+    }
+
+    .ventas-sucursal {
+        margin-right: 0;
+    }
+
+    .tabla-grande tbody{
+        display: block;
+        height: 300px;
+        overflow-x:auto;
+    }
+
+    .tabla-grande tbody td{
+        font-size: .6em;
+    }
+
+    .tabla-grande thead th{
+        font-size: .6em;
     }
 }
