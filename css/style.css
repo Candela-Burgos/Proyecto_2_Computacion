@@ -407,7 +407,7 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande  tbody{
+    .tabla-grande{
         display: block;
         height: 400px;
         overflow-x:auto;
@@ -436,14 +436,14 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande tbody{
+    .tabla-grande {
         display: block;
         height: 350px;
         overflow-x:auto;
     }
 
     .tabla-grande tbody td{
-        font-size: .8em;
+        font-size: 1em;
     }
 
     .tabla-grande thead th{
@@ -464,18 +464,18 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande tbody{
+    .tabla-grande{
         display: block;
         height: 350px;
         overflow-x:auto;
     }
 
     .tabla-grande tbody td{
-        font-size: .7em;
+        font-size: 1em;
     }
 
     .tabla-grande thead th{
-        font-size: .7em;
+        font-size: 1em;
     }
 }
 
@@ -492,18 +492,18 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande tbody{
+    .tabla-grande {
         display: block;
         height: 300px;
         overflow-x:auto;
     }
 
     .tabla-grande tbody td{
-        font-size: .6em;
+        font-size: .9em;
     }
 
     .tabla-grande thead th{
-        font-size: .6em;
+        font-size: .9em;
     }
 }
 
@@ -521,17 +521,17 @@ form > input{
         margin-right: 0;
     }
 
-    .tabla-grande tbody{
+    .tabla-grande {
         display: block;
         height: 300px;
         overflow-x:auto;
     }
 
     .tabla-grande tbody td{
-        font-size: .6em;
+        font-size: .8em;
     }
 
     .tabla-grande thead th{
-        font-size: .6em;
+        font-size: .8em;
     }
 }
