@@ -73,7 +73,7 @@ let saveData = () => {
     let fecha = new Date(inputDateAgregar.value);
     let vendedora = listaVendedorasVentas.value;
     let sucursal = listaSucursalesVentas.value;
-    if (validateAllItems(componentes, fecha, vendedora, sucursal)) {
+    if (validateAllItems(componentes, inputDateAgregar.value, vendedora, sucursal)) {
         alert("Porfavor, complete todos los campos");
     } else {
         nuevoArrVentas.push({
@@ -111,7 +111,7 @@ let changeData = () => {
     let fecha = new Date(inputDateEditar.value);
     let vendedora = listaVendedorasEditar.value;
     let sucursal = listaSucursalesEditar.value;
-    if (validateAllItems(componentes, fecha, vendedora, sucursal)) {
+    if (validateAllItems(componentes, inputDateEditar.value, vendedora, sucursal)) {
         alert("Porfavor, complete todos los campos");
     } else {
         nuevoArrVentas.forEach(e => {
